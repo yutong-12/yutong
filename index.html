@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>杨宇彤 | Yutong Yang · 个人主页</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f5f5f0;
+  --surface: #ffffff;
+  --text: #222;
+  --text-secondary: #555;
+  --text-muted: #888;
+  --primary: #b81c22;
+  --primary-dark: #8b1318;
+  --primary-light: #fef5f5;
+  --primary-bg: rgba(184,28,34,.035);
+  --border: #e8e6e0;
+  --shadow: 0 2px 8px rgba(0,0,0,.04);
+  --shadow-lg: 0 8px 28px rgba(0,0,0,.07);
+  --radius: 10px;
+  --transition: .3s ease;
+  --header-h: 64px;
+}
+[data-theme="dark"] {
+  --bg: #111;
+  --surface: #1a1a1a;
+  --text: #e8e8e0;
+  --text-secondary: #bbb;
+  --text-muted: #666;
+  --primary-light: #1f0a0a;
+  --primary-bg: rgba(184,28,34,.07);
+  --border: #2a2a2a;
+  --shadow: 0 2px 8px rgba(0,0,0,.2);
+  --shadow-lg: 0 8px 28px rgba(0,0,0,.35);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Noto Serif SC", "Source Han Serif SC", "STSong", "SimSun", "Times New Roman", Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 18px;
+  transition: background var(--transition), color var(--transition);
+}
+nav {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--header-h);
+  background: rgba(245,245,240,.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  transition: background var(--transition), border-color var(--transition);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+}
+[data-theme="dark"] nav { background: rgba(17,17,17,.92); }
+.nav-inner {
+  width: 100%; max-width: 1060px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 32px;
+}
+.nav-logo {
+  font-size: 18px; font-weight: 700; color: var(--primary); letter-spacing: 2px;
+  font-family: "Noto Serif SC", serif;
+}
+.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--text-secondary); font-size: 14px; font-weight: 500;
+  letter-spacing: .5px; transition: color var(--transition);
+  position: relative; padding: 4px 0;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 2px; background: var(--primary); transform: scaleX(0);
+  transition: transform var(--transition);
+}
+.nav-links a:hover { color: var(--primary); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-toggle {
+  display: none; background: none; border: 1px solid var(--border);
+  width: 34px; height: 34px; border-radius: var(--radius);
+  cursor: pointer; color: var(--text); font-size: 18px;
+  align-items: center; justify-content: center;
+  transition: all var(--transition);
+}
+.nav-toggle:hover { border-color: var(--primary); color: var(--primary); }
+.nav-update {
+  font-size: 11px; color: var(--text-muted);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-left: 16px; white-space: nowrap; letter-spacing: .3px;
+}
+.lang-toggle {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--text-secondary); cursor: pointer; user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.switch {
+  position: relative; width: 36px; height: 20px;
+  background: var(--border); border-radius: 10px;
+  transition: background var(--transition); cursor: pointer;
+}
+.switch::after {
+  content: ''; position: absolute; top: 2px; left: 2px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: white; box-shadow: 0 1px 3px rgba(0,0,0,.15);
+  transition: transform var(--transition);
+}
+.switch.active { background: var(--primary); }
+.switch.active::after { transform: translateX(16px); }
+.theme-btn {
+  background: none; border: 1px solid var(--border);
+  padding: 0 12px; height: 32px; display: flex; align-items: center; gap: 4px;
+  cursor: pointer; color: var(--text); font-size: 13px; border-radius: var(--radius);
+  transition: all var(--transition); font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.theme-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: calc(var(--header-h) + 40px) 32px 60px;
+  position: relative;
+}
+.hero::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 480px;
+  background: linear-gradient(180deg, var(--primary-bg) 0%, transparent 100%);
+  z-index: -1;
+}
+.hero-inner {
+  max-width: 1060px; width: 100%;
+  display: grid; grid-template-columns: 280px 1fr; gap: 60px;
+  align-items: center;
+}
+.hero-photo-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.hero-portrait {
+  width: 260px; height: 320px; overflow: hidden;
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+.hero-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.hero-badge {
+  display: inline-block;
+  padding: 4px 14px; margin-bottom: 16px;
+  font-size: 11px; letter-spacing: 2px;
+  color: var(--primary); border: 1px solid var(--primary);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.hero-info h1 {
+  font-size: clamp(40px,5.5vw,60px); font-weight: 700;
+  margin-bottom: 6px; letter-spacing: 4px;
+}
+.hero-info .hero-name-en {
+  font-size: 16px; color: var(--text-secondary); letter-spacing: 3px;
+  font-weight: 400; margin-bottom: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.hero-info .hero-title {
+  font-size: 18.5px; color: var(--text-secondary); margin-bottom: 20px;
+  font-weight: 500;
+}
+.hero-divider { width: 48px; height: 2px; background: var(--primary); margin-bottom: 20px; }
+.hero-info .hero-summary {
+  font-size: 17px; color: var(--text-secondary); line-height: 2;
+  max-width: 600px; margin-bottom: 28px;
+}
+.hero-contact {
+  display: flex; flex-wrap: wrap; gap: 16px 28px;
+  font-size: 14px; color: var(--text-secondary);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.hero-contact a {
+  color: inherit; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: color var(--transition);
+}
+.hero-contact a:hover { color: var(--primary); }
+.resume-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 24px;
+  background: var(--primary); color: #fff;
+  border-radius: var(--radius);
+  font-size: 14px; font-weight: 500; letter-spacing: .5px;
+  text-decoration: none;
+  transition: all var(--transition);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.resume-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(184,28,34,.3);
+}
+.paper-link {
+  color: var(--primary); text-decoration: none; font-size: 13px;
+  transition: opacity var(--transition);
+}
+.paper-link:hover { opacity: .7; }
+
+/* Sections */
+section { padding: 80px 32px; }
+.section-inner { max-width: 900px; margin: 0 auto; }
+.section-title {
+  font-size: 28px; font-weight: 700; margin-bottom: 48px;
+  letter-spacing: 3px;
+  display: flex; align-items: center; gap: 16px;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* Timeline cards */
+.timeline-item {
+  margin-bottom: 28px; padding: 28px 32px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.timeline-item:hover { box-shadow: var(--shadow-lg); transform: translateY(-1px); }
+.timeline-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 4px; margin-bottom: 8px;
+}
+.timeline-title {
+  font-size: 19px; font-weight: 700; line-height: 1.5;
+}
+.timeline-title .org-divider {
+  display: inline-block; margin: 0 10px;
+  color: var(--text-muted); font-weight: 300;
+}
+.timeline-title .org-name {
+  font-weight: 600; color: var(--primary);
+  font-size: 16px;
+}
+.timeline-date {
+  font-size: 12px; color: var(--text-muted); white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin-top: 2px;
+}
+.timeline-desc ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.timeline-desc li {
+  position: relative; padding-left: 18px;
+  font-size: 16.5px; color: var(--text-secondary); line-height: 1.7;
+}
+.timeline-desc li::before { content: '—'; position: absolute; left: 0; color: var(--primary); }
+
+/* Campus */
+
+/* Languages */
+.lang-grid { display: flex; flex-wrap: wrap; gap: 16px; }
+.lang-card {
+  flex: 1; min-width: 160px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 22px;
+  display: flex; align-items: center; gap: 16px;
+  box-shadow: var(--shadow); transition: all var(--transition);
+}
+.lang-card:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); }
+.lang-card .lang-icon-wrap {
+  width: 16px; height: 16px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.lang-card .lang-info { flex: 1; }
+.lang-card .lang-name { font-size: 16.5px; font-weight: 700; }
+.lang-card .lang-score { font-size: 12px; color: var(--text-muted); font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin-top: 1px; }
+
+/* Fun Facts */
+.funfacts-grid { display: flex; flex-direction: column; gap: 14px; }
+.funfact-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); transition: all var(--transition);
+  font-size: 16.5px; color: var(--text-secondary);
+}
+.funfact-item:hover { box-shadow: var(--shadow-lg); transform: translateX(3px); }
+.ff-content { padding: 18px 22px; border-left: 3px solid var(--primary); }
+.ff-photos { display: flex; gap: 2px; overflow: hidden; background: var(--border); }
+.ff-photo {
+  flex: 1; height: 100px;
+  background-size: cover; background-position: center;
+  cursor: pointer; transition: all .35s cubic-bezier(.25,.46,.45,.94);
+  position: relative;
+}
+.ff-photo:hover { flex: 3; }
+
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 48px 32px 0;
+  margin-top: 0;
+}
+.footer-inner {
+  max-width: 1060px; margin: 0 auto;
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px;
+}
+.footer-col h5 { font-size: 13px; font-weight: 600; margin-bottom: 12px; letter-spacing: 1px; color: var(--text); }
+.footer-col p { font-size: 13px; color: var(--text-secondary); line-height: 2; }
+.footer-col a { color: var(--text-secondary); text-decoration: none; transition: color var(--transition); }
+.footer-col a:hover { color: var(--primary); }
+.footer-brand { font-size: 20px; font-weight: 700; color: var(--primary); letter-spacing: 2px; }
+.footer-brand-en { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; margin-bottom: 8px; }
+.footer-slogan { font-size: 14px; color: var(--primary); font-style: italic; margin-top: 4px; letter-spacing: 1px; }
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  text-align: center; padding: 20px 0;
+  margin-top: 40px;
+  font-size: 12px; color: var(--text-muted);
+}
+@media (max-width: 700px) {
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .footer-brand { margin-top: 8px; }
+}
+
+[data-lang="zh"] .en-only, [data-lang="en"] .zh-only { display: none !important; }
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s cubic-bezier(.25,.46,.45,.94), transform .6s cubic-bezier(.25,.46,.45,.94); }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.timeline-item:nth-child(2) { transition-delay: .08s; }
+.timeline-item:nth-child(3) { transition-delay: .16s; }
+.timeline-item:nth-child(4) { transition-delay: .24s; }
+.timeline-item:nth-child(5) { transition-delay: .32s; }
+
+/* Campus cards with triangle accent */
+.campus-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px 24px 20px 32px;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.campus-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 20px solid var(--primary);
+  border-bottom: 20px solid transparent;
+}
+.campus-item:hover {
+  box-shadow: var(--shadow-lg); transform: translateY(-2px);
+}
+.campus-item .campus-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 4px; margin-bottom: 6px;
+}
+.campus-item .campus-title {
+  font-size: 16px; font-weight: 700; color: var(--primary);
+}
+.campus-item .campus-date {
+  font-size: 12px; color: var(--text-muted); white-space: nowrap;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.campus-item .campus-desc {
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Oxford photos */
+.oxford-photos { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.oxford-photo {
+  width: 52px; height: 52px; border-radius: 50%;
+  background-size: cover; background-position: center;
+  border: 2px solid var(--border);
+  cursor: pointer; transition: all .35s cubic-bezier(.25,.46,.45,.94);
+  position: relative;
+}
+.oxford-photo:hover {
+  width: 180px; height: 135px; border-radius: var(--radius);
+  border-color: var(--primary); z-index: 5;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 860px) {
+  .nav-toggle { display: flex; }
+  .nav-update { display: none; }
+  .nav-links {
+    position: fixed; top: var(--header-h); left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-110%); opacity: 0;
+    transition: all .35s cubic-bezier(.25,.46,.45,.94);
+    z-index: 999; padding: 8px 0;
+  }
+  [data-theme="dark"] .nav-links { background: #1a1a1a; }
+  .nav-links.nav-open { transform: translateY(0); opacity: 1; }
+  .nav-links a {
+    display: block; padding: 14px 32px; font-size: 15px;
+    border-bottom: 1px solid var(--border); letter-spacing: 1px;
+  }
+  .nav-links a::after { display: none; }
+  .nav-links li:last-child a { border-bottom: none; }
+  .hero-inner { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+  .hero-photo-col { align-items: center; }
+  .hero-portrait { width: 200px; height: 260px; }
+  .hero-divider { margin: 0 auto 20px; }
+  .hero-info .hero-summary { max-width: 100%; }
+  .hero-contact { justify-content: center; }
+  .lang-grid { flex-direction: column; }
+  section { padding: 44px 20px; }
+}
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  section { padding: 32px 16px; }
+  .section-title { font-size: 22px; margin-bottom: 28px; letter-spacing: 2px; }
+  .nav-inner { padding: 0 16px; }
+  .hero { padding: calc(var(--header-h) + 24px) 16px 40px; }
+  .hero-portrait { width: 150px; height: 200px; }
+  .hero-info h1 { font-size: clamp(28px, 7vw, 36px); letter-spacing: 2px; }
+  .hero-info .hero-title { font-size: 16px; }
+  .hero-info .hero-summary { font-size: 15px; line-height: 1.8; }
+  .hero-contact { gap: 12px 20px; font-size: 13px; }
+  .timeline-item { padding: 18px 16px; margin-bottom: 20px; }
+  .timeline-title { font-size: 16px; }
+  .timeline-title .org-name { font-size: 14px; }
+  .timeline-desc li { font-size: 14px; padding-left: 14px; }
+  .campus-item { padding: 16px 16px 16px 24px; }
+  .campus-item .campus-title { font-size: 14px; }
+  .campus-item .campus-desc { font-size: 13px; }
+  .lang-card { min-width: 100%; padding: 14px 16px; }
+  .lang-card .lang-name { font-size: 15px; }
+  .funfact-item { font-size: 14.5px; }
+  .ff-content { padding: 14px 16px; }
+  .contact-form { padding: 0 4px; }
+  .back-to-top { bottom: 16px; right: 16px; padding: 8px 16px; font-size: 13px; }
+  .paper-link { font-size: 12px; }
+  .nav-actions { gap: 8px; }
+  .theme-btn { padding: 0 8px; font-size: 12px; height: 30px; }
+  .lang-toggle { font-size: 11px; }
+  .switch { width: 32px; height: 18px; }
+  .switch::after { width: 14px; height: 14px; }
+  .switch.active::after { transform: translateX(14px); }
+  .resume-btn { padding: 8px 18px; font-size: 13px; }
+}
+@media (max-width: 400px) {
+  .hero-portrait { width: 130px; height: 170px; }
+  .hero-info h1 { font-size: 26px; }
+  .section-title { font-size: 19px; }
+  .timeline-title { font-size: 14.5px; }
+  .campus-item { padding: 14px 12px 14px 20px; }
+  .campus-item::before { border-left-width: 14px; border-bottom-width: 14px; }
+}
+@media print { nav { display: none; } .hero { min-height: auto; padding-top: 0; } }
+
+/* Back to top */
+.back-to-top {
+  position: fixed; bottom: 32px; right: 32px;
+  background: var(--primary); color: #fff;
+  border: none; border-radius: var(--radius); cursor: pointer;
+  padding: 10px 20px;
+  font-size: 14px; letter-spacing: .5px;
+  box-shadow: var(--shadow-lg);
+  opacity: 0; visibility: hidden;
+  transition: all var(--transition);
+  z-index: 999;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-3px); background: var(--primary-dark); }
+
+/* Contact form */
+.contact-form { max-width: 520px; margin: 0 auto; }
+.form-row { margin-bottom: 16px; }
+.form-row input, .form-row textarea {
+  width: 100%; padding: 12px 16px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); color: var(--text);
+  font-size: 15px; font-family: inherit;
+  transition: border-color var(--transition);
+  outline: none;
+}
+.form-row input:focus, .form-row textarea:focus { border-color: var(--primary); }
+.send-btn {
+  padding: 10px 28px;
+  background: var(--primary); color: #fff;
+  border: none; border-radius: var(--radius);
+  font-size: 14px; cursor: pointer; letter-spacing: .5px;
+  transition: all var(--transition);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+.send-btn:hover {
+  background: var(--primary-dark); transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(184,28,34,.3);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">杨宇彤</div>
+    <ul class="nav-links">
+      <li><a href="#education"><span class="zh-only">教育背景</span><span class="en-only">Education</span></a></li>
+      <li><a href="#experience"><span class="zh-only">实习经历</span><span class="en-only">Experience</span></a></li>
+      <li><a href="#projects"><span class="zh-only">项目经历</span><span class="en-only">Projects</span></a></li>
+      <li><a href="#campus"><span class="zh-only">校园经历</span><span class="en-only">Activities</span></a></li>
+      <li><a href="#skills"><span class="zh-only">更多趣事</span><span class="en-only">More</span></a></li>
+      <li><a href="#contact"><span class="zh-only">留言</span><span class="en-only">Contact</span></a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-toggle" onclick="toggleLang()">
+        <span style="font-weight:500;color:var(--text);">中</span>
+        <div class="switch" id="langSwitch"></div>
+        <span style="font-weight:500;">EN</span>
+      </div>
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="toggle theme">🌙 <span class="zh-only">深色模式</span><span class="en-only">Dark</span></button>
+    </div>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="menu">☰</button>
+    <div class="nav-update">
+      <span class="zh-only">更新于 2026.05</span>
+      <span class="en-only">Updated May 2026</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo-col">
+      <div class="hero-portrait">
+        <img src="portrait.jpg" alt="杨宇彤" />
+      </div>
+    </div>
+    <div class="hero-info">
+      <div class="hero-badge"><span class="zh-only">北京大学 · 汇丰商学院</span><span class="en-only">Peking University</span></div>
+      <h1><span class="zh-only">杨宇彤</span><span class="en-only">Yutong Yang</span></h1>
+      <div class="hero-name-en"><span class="zh-only" style="color:var(--text-secondary);letter-spacing:3px;font-weight:400;">Yutong Yang</span><span class="en-only" style="display:none!important">Yutong Yang</span></div>
+      <div class="hero-title zh-only">金融硕士研究生（国际金融管理方向）</div>
+      <div class="hero-title en-only">Master of Finance Candidate</div>
+      <div class="hero-divider"></div>
+      <div class="hero-summary zh-only">
+        北京大学汇丰商学院金融硕士在读，本科毕业于对外经济贸易大学中国金融学院（GPA 3.92/4.00，专业排名2/163），获国家奖学金、北京市优秀毕业生等荣誉。先后于嘉实资本、东吴证券、国投证券等头部机构实习，覆盖另类资管、消费行业研究与产业研究。持有英语专业八级证书，雅思7.5。
+      </div>
+      <div class="hero-summary en-only">
+        Master of Finance candidate at Peking University. B.S. in Finance from University of International Business and Economics (GPA 3.92/4.00, ranked 2/163), recipient of National Scholarship and Beijing Outstanding Graduate. Internship experience at Harvest Capital, Dongwu Securities, and SDIC Securities covering asset management, equity research, and industry research. TEM-8 certified, IELTS 7.5.
+      </div>
+      <div class="hero-contact">
+        <a href="tel:+8615040115055">📞 (+86) 150-4011-5055</a>
+        <a href="mailto:ytyang25@stu.pku.edu.cn">✉️ ytyang25@stu.pku.edu.cn</a>
+      </div>
+      <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="resume-zh.pdf" class="resume-btn zh-only" target="_blank">📄 简历</a>
+        <a href="resume-en.pdf" class="resume-btn en-only" target="_blank">📄 Resume</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 教育背景 ==================== -->
+<section id="education">
+  <div class="section-inner">
+    <h2 class="section-title fade-up"><span class="zh-only">教育背景</span><span class="en-only">Education</span></h2>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">金融硕士 · 国际金融管理方向</span>
+            <span class="en-only">M.S. Finance · International Financial Management</span>
+          </div>
+          <div style="font-size:13px;color:var(--primary);font-weight:500;"><span class="zh-only">北京大学</span><span class="en-only">Peking University</span> <span style="color:var(--text-muted);font-weight:300;">/</span> <span class="zh-only">汇丰商学院</span><span class="en-only">HSBC Business School</span> <span style="color:var(--text-muted);font-weight:300;">/</span> <span class="zh-only">英国牛津 · 深圳</span><span class="en-only">Oxford, UK · Shenzhen, China</span></div>
+        </div>
+        <span class="timeline-date">2025.09 – 2028.06</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <span style="color:var(--text);font-weight:600;">GPA 3.59 / 4.00</span>
+          <ul>
+            <li>首年牛津校区全英文学术环境，后两年回深圳校区</li>
+            <li>核心课程：公司金融（4.0）、财务报表分析（3.7）、兼并与收购</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <span style="color:var(--text);font-weight:600;">GPA 3.59 / 4.00</span>
+          <ul>
+            <li>Year 1 at Oxford campus; Years 2-3 at Shenzhen campus</li>
+            <li>Coursework: Corporate Finance (4.0), Financial Statement Analysis (3.7), M&A</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">金融学本科</span>
+            <span class="en-only">B.S. Finance</span>
+          </div>
+          <div style="font-size:13px;color:var(--primary);font-weight:500;"><span class="zh-only">对外经济贸易大学</span><span class="en-only">University of International Business and Economics</span> <span style="color:var(--text-muted);font-weight:300;">/</span> <span class="zh-only">中国金融学院 / 北京</span><span class="en-only">China School of Banking and Finance, Beijing</span></div>
+        </div>
+        <span class="timeline-date">2021.09 – 2025.06</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <span style="color:var(--text);font-weight:600;">GPA 3.92 / 4.00 · 排名 2 / 163</span>
+          <ul>
+            <li>荣誉：北京市优秀毕业生、国家奖学金、小米奖学金、瑞穗奖学金</li>
+            <li>高分课程：投资学（95）、财报分析（94）、固收分析（92）、金风险管理（96）、Python（95）</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <span style="color:var(--text);font-weight:600;">GPA 3.92 / 4.00 · Rank 2 / 163</span>
+          <ul>
+            <li>Honors: Beijing Outstanding Graduate, National Scholarship, Xiaomi Scholarship</li>
+            <li>Key courses: Investments (95), Financial Statement Analysis (94), Python (95)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 实习经历 ==================== -->
+<section id="experience" style="background:var(--primary-bg);">
+  <div class="section-inner">
+    <h2 class="section-title fade-up"><span class="zh-only">实习经历</span><span class="en-only">Experience</span></h2>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">另类资管 · 渠道理财实习生</span>
+            <span class="en-only">Alternative Asset Management Intern</span>
+            <span class="org-divider">|</span>
+            <span class="org-name"><span class="zh-only">嘉实资本管理有限公司</span><span class="en-only">Harvest Capital Management</span></span>
+          </div>
+        </div>
+        <span class="timeline-date">2024.10 – 2024.12</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>参与资管计划全周期运营，熟悉挂钩中证A500及黄金场外期权的结构化产品设计</li>
+            <li>独立负责4个系列产品宣发物料，制作路演PPT、H5邀请函及海报</li>
+            <li>辅助筹备银行私行客户活动，积累前端销售与客户维护经验</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Full-cycle AM plan operations; structured products linked to CSI A500 and gold OTC options</li>
+            <li>Independently produced marketing materials for 4 product series</li>
+            <li>Assisted private banking client events; front-end sales experience</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">行业研究 · 批零社服美护组</span>
+            <span class="en-only">Equity Research · Consumer & Retail</span>
+            <span class="org-divider">|</span>
+            <span class="org-name"><span class="zh-only">东吴证券研究所</span><span class="en-only">Soochow Securities Research</span></span>
+          </div>
+        </div>
+        <span class="timeline-date">2024.02 – 2024.06</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>研究免税及出境游行业，对比2019年数据，提出现有业务仍具恢复潜力的观点</li>
+            <li>覆盖君亭酒店等上市公司，跟踪ADR、RevPAR指标，撰写点评及公众号推送</li>
+            <li>运用PE/PEG估值体系，参与专家交流会并整理会议纪要</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Researched duty-free & outbound travel, benchmarked against 2019 data</li>
+            <li>Covered listed hospitality companies, tracked ADR & RevPAR</li>
+            <li>Applied PE/PEG frameworks; participated in expert calls</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">产业研究</span>
+            <span class="en-only">Industry Research</span>
+            <span class="org-divider">|</span>
+            <span class="org-name"><span class="zh-only">安信证券（现国投证券）研究中心</span><span class="en-only">Essence Securities (SDIC Securities) Research</span></span>
+          </div>
+        </div>
+        <span class="timeline-date">2023.07 – 2023.10</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>阅读20+篇前沿文献及10+篇深度研报，独立完成35+页行业报告初稿</li>
+            <li>撰写北交所上市公司首次覆盖报告，接触估值模型搭建与基本面分析框架</li>
+            <li>参与撰写4期面向基金客户的重点行业事件点评</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Reviewed 20+ papers and 10+ sell-side reports; drafted a 35+ page industry report</li>
+            <li>Authored initiation reports on NEEQ-listed companies; valuation modeling experience</li>
+            <li>Contributed to 4 sector event commentaries for institutional clients</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 项目经历 ==================== -->
+<section id="projects">
+  <div class="section-inner">
+    <h2 class="section-title fade-up"><span class="zh-only">项目经历</span><span class="en-only">Projects</span></h2>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">美妆行业研究 · 远程助理</span>
+            <span class="en-only">Beauty Sector Research Assistant</span>
+            <span class="org-divider">|</span>
+            <span class="org-name"><span class="zh-only">中信证券研究中心</span><span class="en-only">CITIC Securities Research Center</span></span>
+          </div>
+        </div>
+        <span class="timeline-date">2024.06 – 2024.07</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>通过Euromonitor等渠道梳理宝洁等日化品牌竞争格局，支持美妆行业专题研究</li>
+            <li>参与资生堂覆盖项目，整理财务报告、搭建数据底稿并协助财务模型更新</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Mapped competitive landscape for P&G via Euromonitor; supported beauty sector research</li>
+            <li>Assisted Shiseido coverage — financial reports, data workbooks, model updates</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">场外衍生品 · 实践调研组长</span>
+            <span class="en-only">OTC Derivatives Research · Project Lead</span>
+            <span class="org-divider">|</span>
+            <span class="org-name"><span class="zh-only">中粮期货</span><span class="en-only">COFCO Futures</span></span>
+            <a href="paper-otc.pdf" target="_blank" class="paper-link" style="margin-left:8px;font-weight:400;">📄 <span class="zh-only">场外衍生品的应用实践报告</span><span class="en-only">OTC Derivatives Practice Report</span></a>
+          </div>
+        </div>
+        <span class="timeline-date">2024.04 – 2024.07</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>对比国内外场外衍生品政策与监管，聚焦服务实体企业与农户的产品效果</li>
+            <li>带队实地调研中粮祈德丰，学习"保险+期货"创新模式与风险对冲策略</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Benchmarked OTC derivatives policies; focused on real-economy applications</li>
+            <li>Led field visit to COFCO Qidefeng; studied "Insurance + Futures" model</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">股价信息含量构建与ETF持股影响的实证研究 · 科研助理</span>
+            <span class="en-only">Price Informativeness & ETF Ownership · Research Assistant</span>
+            <a href="paper-price-info.pdf" target="_blank" class="paper-link" style="margin-left:8px;font-weight:400;">📄 <span class="zh-only">ETF持股对股价信息含量影响的实证研究</span><span class="en-only">ETF Ownership & Price Informativeness</span></a>
+          </div>
+        </div>
+        <span class="timeline-date">2024.01 – 2025.06</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>利用股价非同步性与未来盈利相关性两种方法，构建2007–2023年A股股价信息含量指标</li>
+            <li>发现ETF持股通过提升投资者关注度显著提高主板上市公司股价信息含量</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Constructed 2007–2023 price informativeness measures using non-synchronicity and earnings correlation methods</li>
+            <li>Found ETF ownership improves price informativeness by raising investor attention</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">一致魔芋公司深度研究 · 独立项目</span>
+            <span class="en-only">Yizhi Konjac In-Depth Research · Independent Project</span>
+            <a href="paper-yizhi.pdf" target="_blank" class="paper-link" style="margin-left:8px;font-weight:400;">📄 <span class="zh-only">一致魔芋分析报告</span><span class="en-only">Yizhi Konjac Analysis Report</span></a>
+          </div>
+        </div>
+        <span class="timeline-date">2023.10 – 2025.12</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>独立完成北交所上市公司从行业分析、财务报表拆解到估值的完整研究报告</li>
+            <li>运用杜邦分析、剩余收益定价模型与相对估值法，发现存货占比过高、核心利润与经营性现金流背离等风险，给出11元合理股价</li>
+            <li>使用修正琼斯模型和F-score检验盈余质量，识别出2020年后公司盈余管理风险加大的信号</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Independently covered a NEEQ-listed company from industry analysis to financial decomposition and valuation</li>
+            <li>Applied DuPont analysis, residual income model, and relative valuation; flagged inventory overhang and core profit–cash flow divergence risks; set target price at RMB 11</li>
+            <li>Used modified Jones model and F-score to assess earnings quality; detected rising earnings management risk post-2020</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">定向可转债财富效应研究 · 独立作者</span>
+            <span class="en-only">Directed Convertible Bonds Wealth Effect · Independent Author</span>
+            <a href="paper-cb.pdf" target="_blank" class="paper-link" style="margin-left:8px;font-weight:400;">📄 <span class="zh-only">定向可转债财富效应研究</span><span class="en-only">Convertible Bonds Wealth Effect</span></a>
+          </div>
+        </div>
+        <span class="timeline-date">2023.10 – 2024.02</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>以40只定向可转债为样本，采用事件研究法发现公告窗口期内CAAR显著为正</li>
+            <li>通过横截面回归分析发行主体及宏观因素，发现公司类型影响负债水平与财富效应的关系</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Studied 40 directed convertible bonds using event study methodology; found significant positive CAAR</li>
+            <li>Cross-sectional regression revealed firm type moderates leverage-wealth effect relationship</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-header">
+        <div>
+          <div class="timeline-title">
+            <span class="zh-only">原油现货价格预测 · 独立作者</span>
+            <span class="en-only">Crude Oil Spot Price Forecasting · Independent Author</span>
+            <a href="paper-crude.pdf" target="_blank" class="paper-link" style="margin-left:8px;font-weight:400;">📄 <span class="zh-only">原油现货价格预测研究</span><span class="en-only">Crude Oil Spot Price Forecasting</span></a>
+          </div>
+        </div>
+        <span class="timeline-date">2023.09 – 2024.03</span>
+      </div>
+      <div class="timeline-desc">
+        <div class="zh-only">
+          <ul>
+            <li>以期货价格及价差构建5种回归模型，对比INE、Brent、WTI对胜利油田现货价格的预测能力</li>
+            <li>结合INE交易特点与俄乌战争等事件，发现价差模型解释力源于供给不确定性，揭示价差与现货的反向关系</li>
+          </ul>
+        </div>
+        <div class="en-only">
+          <ul>
+            <li>Built 5 regression models using futures prices and spreads to forecast Shengli crude oil spot prices</li>
+            <li>Found spread model's explanatory power derives from supply uncertainty; identified inverse spread-spot relationship</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 校园经历 ==================== -->
+<section id="campus" style="background:var(--primary-bg);">
+  <div class="section-inner">
+    <h2 class="section-title fade-up"><span class="zh-only">校园经历</span><span class="en-only">Activities</span></h2>
+    <div class="fade-up">
+
+      <div class="campus-item">
+        <div class="campus-header">
+          <div class="campus-title">研究生 · 班长</div>
+          <span class="campus-date">2025.09 – <span class="zh-only">至今</span><span class="en-only">Present</span></span>
+        </div>
+        <div class="campus-desc en-only">Liaised with Oxford campus administration on cross-cultural student affairs; organized academic and social events to foster class cohesion</div>
+        <div class="campus-desc zh-only">对接牛津校区管理团队，协调跨文化学生事务；策划学术交流与集体活动</div>
+      </div>
+
+      <div class="campus-item">
+        <div class="campus-header">
+          <div class="campus-title">本科 · 团支部书记</div>
+          <span class="campus-date">2022.09 – 2025.06</span>
+        </div>
+        <div class="campus-desc en-only">Managed league member affairs, organized monthly thematic meetings; recognized as 2022 Outstanding League Cadre</div>
+        <div class="campus-desc zh-only">统筹支部团员管理与思想建设，组织每月主题团日；个人获评2022年校级优秀团干部</div>
+      </div>
+
+      <div class="campus-item">
+        <div class="campus-header">
+          <div class="campus-title">本科 · 年级学习委员</div>
+          <span class="campus-date">2024.09 – 2025.06</span>
+        </div>
+        <div class="campus-desc en-only">Assisted faculty with thesis defense logistics; maintained teaching documents and coordinated academic communications</div>
+        <div class="campus-desc zh-only">协助教务整理毕业答辩材料与流程；更新教学文件，做好师生沟通桥梁</div>
+      </div>
+
+      <div class="campus-item">
+        <div class="campus-header">
+          <div class="campus-title">本科 · 志愿服务团副部长</div>
+          <span class="campus-date">2021.09 – 2023.06</span>
+        </div>
+        <div class="campus-desc en-only">Organized Tree Planting Day and Volunteer Month events; 150+ service hours; led volunteer recruitment and training</div>
+        <div class="campus-desc zh-only">策划植树节、志愿月等校级公益活动；累计志愿超150小时，负责招募与培训</div>
+      </div>
+
+      <div class="campus-item">
+        <div class="campus-header">
+          <div class="campus-title">本科 · 学业助理 · 讲座嘉宾</div>
+          <span class="campus-date">2022.09 – 2025.06</span>
+        </div>
+        <div class="campus-desc en-only">4 semesters tutoring Microeconomics, Linear Algebra, Investments, and Corporate Finance; hosted 2 exam review lectures; recognized as Outstanding Academic Assistant</div>
+        <div class="campus-desc zh-only">连续4学期辅导微观经济学、线性代数、投资学及公司理财；独立举办2次期末复习讲座，获评优秀学业助理</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 技能专长 ==================== -->
+<section id="skills">
+  <div class="section-inner">
+    <h2 class="section-title fade-up"><span class="zh-only">更多趣事</span><span class="en-only">Beyond the Resume</span></h2>
+
+    <div class="skills-section fade-up" style="margin-bottom:40px;">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:14px;"><span class="zh-only">语言能力</span><span class="en-only">Languages</span></h3>
+      <div class="lang-grid">
+        <div class="lang-card">
+          <div class="lang-icon-wrap" style="background:#b81c22;"></div>
+          <div class="lang-info">
+            <div class="lang-name"><span class="zh-only">专业英语八级</span><span class="en-only">TEM-8</span></div>
+            <div class="lang-score zh-only">良好</div>
+            <div class="lang-score en-only">Good</div>
+          </div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-icon-wrap" style="background:#2980b9;"></div>
+          <div class="lang-info">
+            <div class="lang-name"><span class="zh-only">英语六级</span><span class="en-only">CET-6</span></div>
+            <div class="lang-score">613 / 710</div>
+          </div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-icon-wrap" style="background:#16a085;"></div>
+          <div class="lang-info">
+            <div class="lang-name"><span class="zh-only">雅思</span><span class="en-only">IELTS</span></div>
+            <div class="lang-score">7.5 (Speaking 7.0)</div>
+          </div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-icon-wrap" style="background:#e67e22;"></div>
+          <div class="lang-info">
+            <div class="lang-name"><span class="zh-only">法语 A1</span><span class="en-only">Français A1</span></div>
+            <div class="lang-score zh-only">只会一点点</div>
+            <div class="lang-score en-only">Just a little</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-section fade-up">
+      <h3 style="font-size:15px;font-weight:700;margin-bottom:18px;"><span class="zh-only">一点趣闻</span><span class="en-only">Fun Facts</span></h3>
+      <div class="funfacts-grid">
+        <div class="funfact-item">
+          <div class="ff-content">🏛️ <span class="zh-only">北京大学汇丰商学院英国校区——硕士首年在牛津小镇攻读国际金融管理</span><span class="en-only">Peking University's UK campus — first year of my master's in Oxford town</span></div>
+        </div>
+        <div class="funfact-item">
+          <div class="ff-content">🎵 <span class="zh-only">古筝双十级（民乐协会+中国音乐学院双认证）与长笛十级，兼修民乐与西洋乐</span><span class="en-only">Guzheng (Double Level 10 — CMA & CCM certified) & Flute (Level 10) — classically trained in both Chinese and Western music</span></div>
+        </div>
+        <div class="funfact-item">
+          <div class="ff-content">🌍 <span class="zh-only">足迹遍布16个国家、40余座城市，用脚步丈量世界的多样性</span><span class="en-only">Visited 16 countries and 40+ cities  — exploring the world's diversity</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--primary-bg);">
+  <div class="section-inner">
+    <h2 class="section-title fade-up"><span class="zh-only">给我留言</span><span class="en-only">Leave a Message</span></h2>
+    <div class="contact-form fade-up">
+      <div class="form-row">
+        <input type="text" id="msgName" placeholder="姓名 / Your name" />
+      </div>
+      <div class="form-row">
+        <textarea id="msgContent" rows="4" placeholder="写下你想说的话… / Write your message…"></textarea>
+      </div>
+      <div style="text-align:right;">
+        <button class="send-btn" onclick="sendMessage()">
+          <span class="zh-only">📧 发送留言</span>
+          <span class="en-only">📧 Send</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-brand">杨宇彤</div>
+      <div class="footer-brand-en">Yutong Yang</div>
+      <div class="footer-slogan"><span class="zh-only">向前看，慢慢来</span><span class="en-only">Look ahead, take it slow</span></div>
+    </div>
+    <div class="footer-col">
+      <h5><span class="zh-only">联系方式</span><span class="en-only">Contact</span></h5>
+      <p><a href="tel:+8615040115055">📞 (+86) 150-4011-5055</a></p>
+      <p><a href="mailto:ytyang25@stu.pku.edu.cn">✉️ ytyang25@stu.pku.edu.cn</a></p>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Yutong Yang &nbsp;·&nbsp; <span class="zh-only">北京大学汇丰商学院</span><span class="en-only">Peking University</span></p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="back to top"><span class="zh-only">↑ 回到顶部</span><span class="en-only">↑ Back to Top</span></button>
+
+<script>
+let lang = 'zh';
+function toggleLang() {
+  lang = lang === 'zh' ? 'en' : 'zh';
+  document.documentElement.setAttribute('data-lang', lang);
+  document.getElementById('langSwitch').classList.toggle('active');
+  localStorage.setItem('lang', lang);
+}
+let theme = localStorage.getItem('theme') || 'light';
+if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+function toggleTheme() {
+  theme = theme === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+}
+const savedLang = localStorage.getItem('lang') || 'zh';
+lang = savedLang;
+document.documentElement.setAttribute('data-lang', lang);
+if (lang === 'en') document.getElementById('langSwitch').classList.add('active');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+/* Back to top */
+const backBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  backBtn.classList.toggle('visible', window.scrollY > 400);
+});
+function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+
+/* Mobile nav toggle */
+function toggleNav() {
+  document.querySelector('.nav-links').classList.toggle('nav-open');
+}
+/* Close nav on link click or outside click */
+document.addEventListener('click', function(e) {
+  const nav = document.querySelector('.nav-links');
+  if (nav.classList.contains('nav-open') && !e.target.closest('nav')) {
+    nav.classList.remove('nav-open');
+  }
+});
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('nav-open');
+  });
+});
+
+/* Send message via FormSubmit.co */
+async function sendMessage() {
+  const name = document.getElementById('msgName').value.trim();
+  const msg = document.getElementById('msgContent').value.trim();
+  const isEn = document.documentElement.getAttribute('data-lang') === 'en';
+  if (!msg) { alert(isEn ? 'Please enter your message' : '请输入留言内容'); return; }
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/ytyang25@stu.pku.edu.cn', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name: name || 'Anonymous', message: msg, _subject: '来自个人主页的留言' })
+    });
+    if (res.ok) {
+      alert(isEn ? '✅ Sent! Thank you.' : '✅ 已发送，谢谢！');
+      document.getElementById('msgName').value = '';
+      document.getElementById('msgContent').value = '';
+    } else {
+      alert(isEn ? '❌ Send failed. Try email directly.' : '❌ 发送失败，请直接发邮件');
+    }
+  } catch(e) {
+    alert(isEn ? '❌ Network error.' : '❌ 网络错误');
+  }
+}
+</script>
+</body>
+</html>
